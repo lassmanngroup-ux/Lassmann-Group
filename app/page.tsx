@@ -16,12 +16,12 @@ export default function LassmannLanding() {
       heroTitle1: "Lassmann Group OÜ",
       heroTitle2: "Beverages, energy drinks and products for wholesale customers",
       heroText:
-        "We supply beverages and related products for retail, horeca and business buyers. Professional communication, clear company details and convenient direct contact.",
+        "We supply beverages and related products for wholesale, horeca and business buyers. Professional communication, clear company details and convenient direct contact.",
       heroBtn1: "Contact us",
       heroBtn2: "Send email",
-      mainActivity: "Main activity",
-      activityName: "Retail sale of beverages",
-      activityCode: "Economic Activities code: 47251",
+    
+      activityName: "Wholesale sale of beverages",
+  
       quickData: "Company overview",
       catLabel: "Categories",
       catTitle: "Wholesale product directions",
@@ -29,7 +29,7 @@ export default function LassmannLanding() {
       categories: [
         {
           title: "Beverages",
-          desc: "Juices, water, soft drinks and beverage assortments for retail, horeca and distribution.",
+          desc: "Juices, water, soft drinks and beverage assortments for wholesale, horeca and distribution.",
         },
         {
           title: "Energy Drinks",
@@ -54,7 +54,7 @@ export default function LassmannLanding() {
       galleryTitle: "Beverages and product assortment",
       galleryText: "Visual presentation of categories for partners and buyers.",
       aboutLabel: "About company",
-      aboutTitle: "Registered Estonian trade company",
+      
       aboutText:
         "Lassmann Group OÜ operates in the beverage trade segment and provides wholesale-oriented product supply. The company details, office address and registration data are presented openly for partners and customers.",
       detailsTitle: "Company details",
@@ -62,8 +62,8 @@ export default function LassmannLanding() {
       office: "Office",
       reg: "Reg.nr. (EORI)",
       vat: "KMKR (VAT)",
-      notice: "Economic activities notice",
-      econCode: "Economic Activities code",
+      
+   
       contactsLabel: "Contacts",
       contactsTitle: "Get in touch with Lassmann Group OÜ",
       contactsText:
@@ -88,8 +88,8 @@ export default function LassmannLanding() {
       heroBtn1: "Связаться с нами",
       heroBtn2: "Написать на email",
       mainActivity: "Основная деятельность",
-      activityName: "Розничная продажа напитков",
-      activityCode: "Код вида деятельности: 47251",
+      activityName: "Оптовая продажа напитков",
+     
       quickData: "Обзор компании",
       catLabel: "Категории",
       catTitle: "Основные направления поставок",
@@ -122,16 +122,16 @@ export default function LassmannLanding() {
       galleryTitle: "Ассортимент напитков и товаров",
       galleryText: "Визуальная презентация категорий для партнеров и покупателей.",
       aboutLabel: "О компании",
-      aboutTitle: "Зарегистрированная эстонская торговая компания",
+      
       aboutText:
         "Lassmann Group OÜ работает в сегменте торговли напитками и ориентирована на поставки для оптовых клиентов. Реквизиты, адрес офиса и регистрационные данные открыто представлены для партнеров и покупателей.",
       detailsTitle: "Реквизиты компании",
       company: "Компания",
       office: "Офис",
-      reg: "Reg.nr. (EORI)",
-      vat: "KMKR (VAT)",
-      notice: "Номер уведомления о хозяйственной деятельности",
-      econCode: "Код деятельности",
+     
+      
+      
+      
       contactsLabel: "Контакты",
       contactsTitle: "Связаться с Lassmann Group OÜ",
       contactsText:
