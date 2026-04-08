@@ -1,216 +1,270 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
+
+type Category = {
+  title: string;
+  desc: string;
+};
+
+type Translation = {
+  topBadge: string;
+  companyType: string;
+  navCategories: string;
+  navAbout: string;
+  navDetails: string;
+  navContacts: string;
+  heroTitle1: string;
+  heroTitle2: string;
+  heroText: string;
+  heroBtn1: string;
+  heroBtn2: string;
+  mainActivity: string;
+  activityName: string;
+  activityCode: string;
+  quickData: string;
+  catLabel: string;
+  catTitle: string;
+  catText: string;
+  categories: Category[];
+  advantagesLabel: string;
+  advantagesTitle: string;
+  advantagesText: string;
+  advantages: string[];
+  galleryLabel: string;
+  galleryTitle: string;
+  galleryText: string;
+  aboutLabel: string;
+  aboutTitle: string;
+  aboutText: string;
+  detailsTitle: string;
+  company: string;
+  office: string;
+  reg: string;
+  vat: string;
+  notice: string;
+  econCode: string;
+  contactsLabel: string;
+  contactsTitle: string;
+  contactsText: string;
+  emailBtn: string;
+  whatsappBtn: string;
+  phone: string;
+  info: string;
+  footer: string;
+};
+
+type Lang = "en" | "ru" | "et";
+
+const content: Record<Lang, Translation> = {
+  en: {
+    topBadge: "Estonia • Wholesale beverages • Trade supply",
+    companyType: "Wholesale trade in beverages and products",
+    navCategories: "Categories",
+    navAbout: "About",
+    navDetails: "Company details",
+    navContacts: "Contacts",
+    heroTitle1: "Lassmann Group OÜ",
+    heroTitle2: "Beverages, energy drinks and products for wholesale customers",
+    heroText:
+      "We supply beverages and related products for wholesale, horeca and business buyers. Professional communication, clear company details and convenient direct contact.",
+    heroBtn1: "Contact us",
+    heroBtn2: "Send email",
+    mainActivity: "Main activity",
+    activityName: "Wholesale sale of beverages",
+    activityCode: "Activity code: 47251",
+    quickData: "Company overview",
+    catLabel: "Categories",
+    catTitle: "Wholesale product directions",
+    catText: "Suitable for retail stores, resellers, horeca and supply partners.",
+    categories: [
+      {
+        title: "Beverages",
+        desc: "Juices, water, soft drinks and beverage assortments for wholesale, horeca and distribution.",
+      },
+      {
+        title: "Energy Drinks",
+        desc: "High-demand energy drink brands for wholesale supply and resale.",
+      },
+      {
+        title: "Products",
+        desc: "Chocolate, snacks and grocery items for a complete trade assortment.",
+      },
+    ],
+    advantagesLabel: "Advantages",
+    advantagesTitle: "Why work with Lassmann Group OÜ",
+    advantagesText:
+      "Clear business identity, relevant wholesale positioning and direct access to contact information for buyers and partners.",
+    advantages: [
+      "Wholesale supply for shops, horeca and distributors",
+      "Reliable assortment of beverages and related products",
+      "Fast communication via phone, WhatsApp and email",
+      "Registered company in Estonia with full company details",
+    ],
+    galleryLabel: "Products",
+    galleryTitle: "Beverages and product assortment",
+    galleryText: "Visual presentation of categories for partners and buyers.",
+    aboutLabel: "About company",
+    aboutTitle: "Registered trade company in Estonia",
+    aboutText:
+      "Lassmann Group OÜ operates in the beverage trade segment and provides wholesale-oriented product supply. The company details, office address and registration data are presented openly for partners and customers.",
+    detailsTitle: "Company details",
+    company: "Company",
+    office: "Office",
+    reg: "Reg.nr. (EORI)",
+    vat: "KMKR (VAT)",
+    notice: "Economic activity notice number",
+    econCode: "Activity code",
+    contactsLabel: "Contacts",
+    contactsTitle: "Get in touch with Lassmann Group OÜ",
+    contactsText:
+      "For information, business communication and supply requests, use the direct company contacts below.",
+    emailBtn: "Email",
+    whatsappBtn: "WhatsApp",
+    phone: "Phone number",
+    info: "Information",
+    footer: "Wholesale beverages and trade supply.",
+  },
+  ru: {
+    topBadge: "Эстония • Оптовые напитки • Торговые поставки",
+    companyType: "Оптовая торговля напитками и продуктами",
+    navCategories: "Категории",
+    navAbout: "О компании",
+    navDetails: "Реквизиты",
+    navContacts: "Контакты",
+    heroTitle1: "Lassmann Group OÜ",
+    heroTitle2: "Напитки, энергетики и продукты для оптовых клиентов",
+    heroText:
+      "Мы поставляем напитки и сопутствующие товары для розницы, horeca и бизнес-покупателей. Профессиональная коммуникация, прозрачные реквизиты и удобная прямая связь.",
+    heroBtn1: "Связаться с нами",
+    heroBtn2: "Написать на email",
+    mainActivity: "Основная деятельность",
+    activityName: "Оптовая продажа напитков",
+    activityCode: "Код деятельности: 47251",
+    quickData: "Обзор компании",
+    catLabel: "Категории",
+    catTitle: "Основные направления поставок",
+    catText: "Подходит для магазинов, реселлеров, horeca и торговых партнеров.",
+    categories: [
+      {
+        title: "Напитки",
+        desc: "Соки, вода, газированные и другие напитки для розницы, horeca и дистрибуции.",
+      },
+      {
+        title: "Энергетики",
+        desc: "Популярные бренды энергетических напитков для оптовых поставок и перепродажи.",
+      },
+      {
+        title: "Продукты",
+        desc: "Шоколад, снеки и бакалея для полного торгового ассортимента.",
+      },
+    ],
+    advantagesLabel: "Преимущества",
+    advantagesTitle: "Почему работают с Lassmann Group OÜ",
+    advantagesText:
+      "Понятная бизнес-идентификация, правильное позиционирование для опта и быстрый доступ к контактам для покупателей и партнеров.",
+    advantages: [
+      "Оптовые поставки для магазинов, horeca и дистрибьюторов",
+      "Надежный ассортимент напитков и сопутствующих товаров",
+      "Быстрая связь по телефону, WhatsApp и email",
+      "Зарегистрированная компания в Эстонии с полными реквизитами",
+    ],
+    galleryLabel: "Продукция",
+    galleryTitle: "Ассортимент напитков и товаров",
+    galleryText: "Визуальная презентация категорий для партнеров и покупателей.",
+    aboutLabel: "О компании",
+    aboutTitle: "Зарегистрированная торговая компания в Эстонии",
+    aboutText:
+      "Lassmann Group OÜ работает в сегменте торговли напитками и ориентирована на поставки для оптовых клиентов. Реквизиты, адрес офиса и регистрационные данные открыто представлены для партнеров и покупателей.",
+    detailsTitle: "Реквизиты компании",
+    company: "Компания",
+    office: "Офис",
+    reg: "Рег. № (EORI)",
+    vat: "KMKR (VAT)",
+    notice: "Номер уведомления о хозяйственной деятельности",
+    econCode: "Код деятельности",
+    contactsLabel: "Контакты",
+    contactsTitle: "Связаться с Lassmann Group OÜ",
+    contactsText:
+      "Для информации, деловой связи и запросов на поставку используйте прямые контакты компании ниже.",
+    emailBtn: "Email",
+    whatsappBtn: "WhatsApp",
+    phone: "Телефон",
+    info: "Информация",
+    footer: "Оптовые напитки и торговые поставки.",
+  },
+  et: {
+    topBadge: "Eesti • Hulgimüük • Joogikaubandus",
+    companyType: "Jookide ja toodete hulgikaubandus",
+    navCategories: "Kategooriad",
+    navAbout: "Ettevõttest",
+    navDetails: "Ettevõtte andmed",
+    navContacts: "Kontaktid",
+    heroTitle1: "Lassmann Group OÜ",
+    heroTitle2: "Joogid, energiajoogid ja tooted hulgiklientidele",
+    heroText:
+      "Tarnime jooke ja seotud tooteid jaekaubandusele, horeca-sektorile ja äriklientidele. Professionaalne suhtlus, selged ettevõtte andmed ja mugav otsekontakt.",
+    heroBtn1: "Võta ühendust",
+    heroBtn2: "Saada e-kiri",
+    mainActivity: "Põhitegevus",
+    activityName: "Jookide jaemüük",
+    activityCode: "Tegevusala kood: 47251",
+    quickData: "Ettevõtte ülevaade",
+    catLabel: "Kategooriad",
+    catTitle: "Hulgimüügi põhisuunad",
+    catText: "Sobib kauplustele, edasimüüjatele, horeca-sektorile ja tarnepartneritele.",
+    categories: [
+      {
+        title: "Joogid",
+        desc: "Mahlad, vesi, karastusjoogid ja muud joogid jaekaubandusele, horeca-sektorile ja jaotusele.",
+      },
+      {
+        title: "Energiajoogid",
+        desc: "Suure nõudlusega energiajoogid hulgimüügiks ja edasimüügiks.",
+      },
+      {
+        title: "Tooted",
+        desc: "Šokolaad, snäkid ja toidukaubad täieliku kaubavaliku jaoks.",
+      },
+    ],
+    advantagesLabel: "Eelised",
+    advantagesTitle: "Miks teha koostööd Lassmann Group OÜ-ga",
+    advantagesText:
+      "Selge äriline identiteet, sobiv hulgimüügi positsioneerimine ja otsene ligipääs kontaktandmetele ostjate ja partnerite jaoks.",
+    advantages: [
+      "Hulgitarne kauplustele, horeca-sektorile ja edasimüüjatele",
+      "Usaldusväärne jookide ja seotud toodete valik",
+      "Kiire suhtlus telefoni, WhatsAppi ja e-posti kaudu",
+      "Eestis registreeritud ettevõte koos täielike andmetega",
+    ],
+    galleryLabel: "Tooted",
+    galleryTitle: "Jookide ja toodete valik",
+    galleryText: "Visuaalne esitlus partneritele ja ostjatele.",
+    aboutLabel: "Ettevõttest",
+    aboutTitle: "Eestis registreeritud kaubandusettevõte",
+    aboutText:
+      "Lassmann Group OÜ tegutseb joogikaubanduse valdkonnas ja pakub hulgimüügile suunatud tarneid. Ettevõtte andmed, kontori aadress ja registreerimisinfo on partneritele ja klientidele avalikult esitatud.",
+    detailsTitle: "Ettevõtte andmed",
+    company: "Ettevõte",
+    office: "Kontor",
+    reg: "Reg.nr. (EORI)",
+    vat: "KMKR (VAT)",
+    notice: "Majandustegevuse teate number",
+    econCode: "Tegevusala kood",
+    contactsLabel: "Kontaktid",
+    contactsTitle: "Võta ühendust Lassmann Group OÜ-ga",
+    contactsText:
+      "Info, ärisuhtluse ja tarnepäringute jaoks kasuta allpool toodud otseseid kontakte.",
+    emailBtn: "E-post",
+    whatsappBtn: "WhatsApp",
+    phone: "Telefon",
+    info: "Info",
+    footer: "Jookide hulgimüük ja kaubanduslik tarne.",
+  },
+};
 
 export default function LassmannLanding() {
-  const [lang, setLang] = useState<"en" | "ru" | "et">("en");
-
-  const content = {
-    en: {
-      topBadge: "Estonia • Wholesale beverages • Trade supply",
-      companyType: "Wholesale trade in beverages and products",
-      navCategories: "Categories",
-      navAbout: "About",
-      navDetails: "Company details",
-      navContacts: "Contacts",
-      heroTitle1: "Lassmann Group OÜ",
-      heroTitle2: "Beverages, energy drinks and products for wholesale customers",
-      heroText:
-        "We supply beverages and related products for wholesale, horeca and business buyers. Professional communication, clear company details and convenient direct contact.",
-      heroBtn1: "Contact us",
-      heroBtn2: "Send email",
-    
-      activityName: "Wholesale sale of beverages",
-  
-      quickData: "Company overview",
-      catLabel: "Categories",
-      catTitle: "Wholesale product directions",
-      catText: "Suitable for retail stores, resellers, horeca and supply partners.",
-      categories: [
-        {
-          title: "Beverages",
-          desc: "Juices, water, soft drinks and beverage assortments for wholesale, horeca and distribution.",
-        },
-        {
-          title: "Energy Drinks",
-          desc: "High-demand energy drink brands for wholesale supply and resale.",
-        },
-        {
-          title: "Products",
-          desc: "Chocolate, snacks and grocery items for a complete trade assortment.",
-        },
-      ],
-      advantagesLabel: "Advantages",
-      advantagesTitle: "Why work with Lassmann Group OÜ",
-      advantagesText:
-        "Clear business identity, relevant wholesale positioning and direct access to contact information for buyers and partners.",
-      advantages: [
-        "Wholesale supply for shops, horeca and distributors",
-        "Reliable assortment of beverages and related products",
-        "Fast communication via phone, WhatsApp and email",
-        "Registered company in Estonia with full company details",
-      ],
-      galleryLabel: "Products",
-      galleryTitle: "Beverages and product assortment",
-      galleryText: "Visual presentation of categories for partners and buyers.",
-      aboutLabel: "About company",
-      
-      aboutText:
-        "Lassmann Group OÜ operates in the beverage trade segment and provides wholesale-oriented product supply. The company details, office address and registration data are presented openly for partners and customers.",
-      detailsTitle: "Company details",
-      company: "Company",
-      office: "Office",
-      reg: "Reg.nr. (EORI)",
-      vat: "KMKR (VAT)",
-      
-   
-      contactsLabel: "Contacts",
-      contactsTitle: "Get in touch with Lassmann Group OÜ",
-      contactsText:
-        "For information, business communication and supply requests, use the direct company contacts below.",
-      emailBtn: "Email",
-      whatsappBtn: "WhatsApp",
-      phone: "Phone number",
-      info: "Information",
-      footer: "Wholesale beverages and trade supply.",
-    },
-    ru: {
-      topBadge: "Эстония • Оптовые напитки • Торговые поставки",
-      companyType: "Оптовая торговля напитками и продуктами",
-      navCategories: "Категории",
-      navAbout: "О компании",
-      navDetails: "Реквизиты",
-      navContacts: "Контакты",
-      heroTitle1: "Lassmann Group OÜ",
-      heroTitle2: "Напитки, энергетики и продукты для оптовых клиентов",
-      heroText:
-        "Мы поставляем напитки и сопутствующие товары для розницы, horeca и бизнес-покупателей. Профессиональная коммуникация, прозрачные реквизиты и удобная прямая связь.",
-      heroBtn1: "Связаться с нами",
-      heroBtn2: "Написать на email",
-      mainActivity: "Основная деятельность",
-      activityName: "Оптовая продажа напитков",
-     
-      quickData: "Обзор компании",
-      catLabel: "Категории",
-      catTitle: "Основные направления поставок",
-      catText: "Подходит для магазинов, реселлеров, horeca и торговых партнеров.",
-      categories: [
-        {
-          title: "Напитки",
-          desc: "Соки, вода, газированные и другие напитки для розницы, horeca и дистрибуции.",
-        },
-        {
-          title: "Энергетики",
-          desc: "Популярные бренды энергетических напитков для оптовых поставок и перепродажи.",
-        },
-        {
-          title: "Продукты",
-          desc: "Шоколад, снеки и бакалея для полного торгового ассортимента.",
-        },
-      ],
-      advantagesLabel: "Преимущества",
-      advantagesTitle: "Почему работают с Lassmann Group OÜ",
-      advantagesText:
-        "Понятная бизнес-идентификация, правильное позиционирование для опта и быстрый доступ к контактам для покупателей и партнеров.",
-      advantages: [
-        "Оптовые поставки для магазинов, horeca и дистрибьюторов",
-        "Надежный ассортимент напитков и сопутствующих товаров",
-        "Быстрая связь по телефону, WhatsApp и email",
-        "Зарегистрированная компания в Эстонии с полными реквизитами",
-      ],
-      galleryLabel: "Продукция",
-      galleryTitle: "Ассортимент напитков и товаров",
-      galleryText: "Визуальная презентация категорий для партнеров и покупателей.",
-      aboutLabel: "О компании",
-      
-      aboutText:
-        "Lassmann Group OÜ работает в сегменте торговли напитками и ориентирована на поставки для оптовых клиентов. Реквизиты, адрес офиса и регистрационные данные открыто представлены для партнеров и покупателей.",
-      detailsTitle: "Реквизиты компании",
-      company: "Компания",
-      office: "Офис",
-     
-      
-      
-      
-      contactsLabel: "Контакты",
-      contactsTitle: "Связаться с Lassmann Group OÜ",
-      contactsText:
-        "Для информации, деловой связи и запросов на поставку используйте прямые контакты компании ниже.",
-      emailBtn: "Email",
-      whatsappBtn: "WhatsApp",
-      phone: "Телефон",
-      info: "Информация",
-      footer: "Оптовые напитки и торговые поставки.",
-    },
-    et: {
-      topBadge: "Eesti • Hulgimüük • Joogikaubandus",
-      companyType: "Jookide ja toodete hulgikaubandus",
-      navCategories: "Kategooriad",
-      navAbout: "Ettevõttest",
-      navDetails: "Ettevõtte andmed",
-      navContacts: "Kontaktid",
-      heroTitle1: "Lassmann Group OÜ",
-      heroTitle2: "Joogid, energiajoogid ja tooted hulgiklientidele",
-      heroText:
-        "Tarnime jooke ja seotud tooteid jaekaubandusele, horeca-sektorile ja äriklientidele. Professionaalne suhtlus, selged ettevõtte andmed ja mugav otsekontakt.",
-      heroBtn1: "Võta ühendust",
-      heroBtn2: "Saada e-kiri",
-      mainActivity: "Põhitegevus",
-      activityName: "Jookide jaemüük",
-      activityCode: "Tegevusala kood: 47251",
-      quickData: "Ettevõtte ülevaade",
-      catLabel: "Kategooriad",
-      catTitle: "Hulgimüügi põhisuunad",
-      catText: "Sobib kauplustele, edasimüüjatele, horeca-sektorile ja tarnepartneritele.",
-      categories: [
-        {
-          title: "Joogid",
-          desc: "Mahlad, vesi, karastusjoogid ja muud joogid jaekaubandusele, horeca-sektorile ja jaotusele.",
-        },
-        {
-          title: "Energiajoogid",
-          desc: "Suure nõudlusega energiajoogid hulgimüügiks ja edasimüügiks.",
-        },
-        {
-          title: "Tooted",
-          desc: "Šokolaad, snäkid ja toidukaubad täieliku kaubavaliku jaoks.",
-        },
-      ],
-      advantagesLabel: "Eelised",
-      advantagesTitle: "Miks teha koostööd Lassmann Group OÜ-ga",
-      advantagesText:
-        "Selge äriline identiteet, sobiv hulgimüügi positsioneerimine ja otsene ligipääs kontaktandmetele ostjate ja partnerite jaoks.",
-      advantages: [
-        "Hulgitarne kauplustele, horeca-sektorile ja edasimüüjatele",
-        "Usaldusväärne jookide ja seotud toodete valik",
-        "Kiire suhtlus telefoni, WhatsAppi ja e-posti kaudu",
-        "Eestis registreeritud ettevõte koos täielike andmetega",
-      ],
-      galleryLabel: "Tooted",
-      galleryTitle: "Jookide ja toodete valik",
-      galleryText: "Visuaalne esitlus partneritele ja ostjatele.",
-      aboutLabel: "Ettevõttest",
-      aboutTitle: "Eestis registreeritud kaubandusettevõte",
-      aboutText:
-        "Lassmann Group OÜ tegutseb joogikaubanduse valdkonnas ja pakub hulgimüügile suunatud tarneid. Ettevõtte andmed, kontori aadress ja registreerimisinfo on partneritele ja klientidele avalikult esitatud.",
-      detailsTitle: "Ettevõtte andmed",
-      company: "Ettevõte",
-      office: "Kontor",
-      reg: "Reg.nr. (EORI)",
-      vat: "KMKR (VAT)",
-      notice: "Majandustegevuse teate number",
-      econCode: "Tegevusala kood",
-      contactsLabel: "Kontaktid",
-      contactsTitle: "Võta ühendust Lassmann Group OÜ-ga",
-      contactsText:
-        "Info, ärisuhtluse ja tarnepäringute jaoks kasuta allpool toodud otseseid kontakte.",
-      emailBtn: "E-post",
-      whatsappBtn: "WhatsApp",
-      phone: "Telefon",
-      info: "Info",
-      footer: "Jookide hulgimüük ja kaubanduslik tarne.",
-    },
-  } as const;
+  const [lang, setLang] = useState<Lang>("en");
 
   const t = content[lang];
 
@@ -232,11 +286,11 @@ export default function LassmannLanding() {
     },
   ];
 
-  const languages = [
+  const languages: { key: Lang; label: string }[] = [
     { key: "en", label: "EN" },
     { key: "ru", label: "RU" },
     { key: "et", label: "ET" },
-  ] as const;
+  ];
 
   return (
     <div className="min-h-screen bg-neutral-950 text-white">
@@ -274,10 +328,18 @@ export default function LassmannLanding() {
                 ))}
               </div>
               <nav className="flex flex-wrap gap-4 text-sm text-white/75">
-                <a href="#categories" className="transition hover:text-white">{t.navCategories}</a>
-                <a href="#about" className="transition hover:text-white">{t.navAbout}</a>
-                <a href="#details" className="transition hover:text-white">{t.navDetails}</a>
-                <a href="#contacts" className="transition hover:text-white">{t.navContacts}</a>
+                <a href="#categories" className="transition hover:text-white">
+                  {t.navCategories}
+                </a>
+                <a href="#about" className="transition hover:text-white">
+                  {t.navAbout}
+                </a>
+                <a href="#details" className="transition hover:text-white">
+                  {t.navDetails}
+                </a>
+                <a href="#contacts" className="transition hover:text-white">
+                  {t.navContacts}
+                </a>
               </nav>
             </div>
           </header>
@@ -319,7 +381,9 @@ export default function LassmannLanding() {
               <div className="relative rounded-[32px] border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur">
                 <div className="grid gap-4">
                   <div className="rounded-3xl bg-gradient-to-br from-green-400 to-lime-300 p-6 text-black">
-                    <div className="text-sm font-medium uppercase tracking-wider">{t.mainActivity}</div>
+                    <div className="text-sm font-medium uppercase tracking-wider">
+                      {t.mainActivity}
+                    </div>
                     <div className="mt-8 text-3xl font-bold">{t.activityName}</div>
                     <div className="mt-2 text-sm text-black/70">{t.activityCode}</div>
                   </div>
@@ -365,9 +429,13 @@ export default function LassmannLanding() {
       <section className="bg-white text-neutral-950">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-2 lg:px-8">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-green-600">{t.advantagesLabel}</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-green-600">
+              {t.advantagesLabel}
+            </p>
             <h2 className="mt-3 text-3xl font-bold md:text-4xl">{t.advantagesTitle}</h2>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-neutral-600">{t.advantagesText}</p>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-neutral-600">
+              {t.advantagesText}
+            </p>
           </div>
           <div className="grid gap-4">
             {t.advantages.map((item) => (
@@ -393,7 +461,10 @@ export default function LassmannLanding() {
 
         <div className="grid gap-6 md:grid-cols-3">
           {gallery.map((item) => (
-            <div key={item.title} className="overflow-hidden rounded-[28px] border border-white/10 bg-white/5">
+            <div
+              key={item.title}
+              className="overflow-hidden rounded-[28px] border border-white/10 bg-white/5"
+            >
               <img src={item.image} alt={item.title} className="h-72 w-full object-cover" />
               <div className="p-5">
                 <h3 className="text-xl font-semibold">{item.title}</h3>
@@ -411,15 +482,32 @@ export default function LassmannLanding() {
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/65">{t.aboutText}</p>
           </div>
 
-          <div id="details" className="rounded-[32px] border border-green-400/20 bg-gradient-to-br from-green-500/15 to-blue-500/10 p-8">
+          <div
+            id="details"
+            className="rounded-[32px] border border-green-400/20 bg-gradient-to-br from-green-500/15 to-blue-500/10 p-8"
+          >
             <div className="text-sm text-white/60">{t.detailsTitle}</div>
             <div className="mt-5 space-y-4 text-base text-white/85">
-              <div><span className="font-semibold text-white">{t.company}:</span> Lassmann Group OÜ</div>
-              <div><span className="font-semibold text-white">{t.office}:</span> Kesk-Sõjamäe 2/1, EE-11415 Tallinn</div>
-              <div><span className="font-semibold text-white">{t.reg}:</span> 12044675</div>
-              <div><span className="font-semibold text-white">{t.vat}:</span> EE101532367</div>
-              <div><span className="font-semibold text-white">{t.notice}:</span> KJK056031</div>
-              <div><span className="font-semibold text-white">{t.econCode}:</span> 47251 - Retail sale of beverages</div>
+              <div>
+                <span className="font-semibold text-white">{t.company}:</span> Lassmann Group OÜ
+              </div>
+              <div>
+                <span className="font-semibold text-white">{t.office}:</span> Kesk-Sõjamäe 2/1,
+                EE-11415 Tallinn
+              </div>
+              <div>
+                <span className="font-semibold text-white">{t.reg}:</span> 12044675
+              </div>
+              <div>
+                <span className="font-semibold text-white">{t.vat}:</span> EE101532367
+              </div>
+              <div>
+                <span className="font-semibold text-white">{t.notice}:</span> KJK056031
+              </div>
+              <div>
+                <span className="font-semibold text-white">{t.econCode}:</span> 47251 - Retail
+                sale of beverages
+              </div>
             </div>
           </div>
         </div>
@@ -429,7 +517,9 @@ export default function LassmannLanding() {
         <div className="rounded-[32px] border border-white/10 bg-white/5 p-8">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
             <div>
-              <p className="text-sm uppercase tracking-[0.2em] text-green-400">{t.contactsLabel}</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-green-400">
+                {t.contactsLabel}
+              </p>
               <h2 className="mt-3 text-3xl font-bold md:text-4xl">{t.contactsTitle}</h2>
               <p className="mt-4 max-w-2xl text-white/65">{t.contactsText}</p>
             </div>
@@ -485,9 +575,6 @@ export default function LassmannLanding() {
   );
 }
 
-function categoriesForLang(
-  categories: readonly { title: string; desc: string }[],
-  index: number
-) {
+function categoriesForLang(categories: readonly Category[], index: number) {
   return categories[index]?.title ?? "";
 }
