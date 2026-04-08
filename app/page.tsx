@@ -1,4 +1,6 @@
-import { useState } from "react";
+"use client";
+
+import { useMemo, useState } from "react";
 
 export default function LassmannLanding() {
   const [lang, setLang] = useState<"en" | "ru" | "et">("en");
