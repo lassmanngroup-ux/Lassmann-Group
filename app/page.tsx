@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+type Lang = "en" | "ru" | "et";
+
 type Category = {
   title: string;
   desc: string;
@@ -53,8 +55,6 @@ type Translation = {
   info: string;
   footer: string;
 };
-
-type Lang = "en" | "ru" | "et";
 
 const content: Record<Lang, Translation> = {
   en: {
@@ -206,7 +206,9 @@ const content: Record<Lang, Translation> = {
       "Tarnime jooke ja seotud tooteid jaekaubandusele, horeca-sektorile ja äriklientidele. Professionaalne suhtlus, selged ettevõtte andmed ja mugav otsekontakt.",
     heroBtn1: "Võta ühendust",
     heroBtn2: "Saada e-kiri",
+    mainActivity: "Põhitegevus",
     activityName: "Jookide jaemüük",
+    activityCode: "Tegevusala kood: 47251",
     quickData: "Ettevõtte ülevaade",
     catLabel: "Kategooriad",
     catTitle: "Hulgimüügi põhisuunad",
@@ -239,12 +241,16 @@ const content: Record<Lang, Translation> = {
     galleryTitle: "Jookide ja toodete valik",
     galleryText: "Visuaalne esitlus partneritele ja ostjatele.",
     aboutLabel: "Ettevõttest",
+    aboutTitle: "Eestis registreeritud kaubandusettevõte",
     aboutText:
       "Lassmann Group OÜ tegutseb joogikaubanduse valdkonnas ja pakub hulgimüügile suunatud tarneid. Ettevõtte andmed, kontori aadress ja registreerimisinfo on partneritele ja klientidele avalikult esitatud.",
     detailsTitle: "Ettevõtte andmed",
     company: "Ettevõte",
     office: "Kontor",
+    reg: "Reg.nr. (EORI)",
     vat: "KMKR (VAT)",
+    notice: "Majandustegevuse teate number",
+    econCode: "Tegevusala kood",
     contactsLabel: "Kontaktid",
     contactsTitle: "Võta ühendust Lassmann Group OÜ-ga",
     contactsText:
@@ -256,6 +262,10 @@ const content: Record<Lang, Translation> = {
     footer: "Jookide hulgimüük ja kaubanduslik tarne.",
   },
 };
+
+function categoriesForLang(categories: readonly Category[], index: number) {
+  return categories[index]?.title ?? "";
+}
 
 export default function LassmannLanding() {
   const [lang, setLang] = useState<Lang>("en");
@@ -567,8 +577,4 @@ export default function LassmannLanding() {
       </section>
     </div>
   );
-}
-
-function categoriesForLang(categories: readonly Category[], index: number) {
-  return categories[index]?.title ?? "";
 }
