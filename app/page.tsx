@@ -16,7 +16,6 @@ type Translation = {
   navAbout: string;
   navDetails: string;
   navContacts: string;
-  heroTitle1: string;
   heroTitle2: string;
   heroText: string;
   heroBtn1: string;
@@ -24,7 +23,6 @@ type Translation = {
   mainActivity: string;
   activityName: string;
   quickData: string;
-  quickLine1: string;
   quickLine2: string;
   quickLine3: string;
   catLabel: string;
@@ -56,6 +54,8 @@ type Translation = {
   footer: string;
 };
 
+const brandName = "Lassmann Group";
+
 const content: Record<Lang, Translation> = {
   en: {
     topBadge: "Estonia • Wholesale beverages • Trade supply",
@@ -64,7 +64,6 @@ const content: Record<Lang, Translation> = {
     navAbout: "About",
     navDetails: "Company details",
     navContacts: "Contacts",
-    heroTitle1: "Lassmann Group OÜ",
     heroTitle2: "Beverages, energy drinks and products for wholesale customers",
     heroText:
       "We supply beverages and related products for wholesale buyers, horeca and business customers. Clear communication, transparent company details and direct contact.",
@@ -73,7 +72,6 @@ const content: Record<Lang, Translation> = {
     mainActivity: "Main activity",
     activityName: "Wholesale trade in beverages and products",
     quickData: "Company overview",
-    quickLine1: "Lassmann Group OÜ",
     quickLine2: "Tallinn, Estonia",
     quickLine3: "Wholesale trade supply",
     catLabel: "Categories",
@@ -94,7 +92,7 @@ const content: Record<Lang, Translation> = {
       },
     ],
     advantagesLabel: "Advantages",
-    advantagesTitle: "Why work with Lassmann Group OÜ",
+    advantagesTitle: "Why work with",
     advantagesText:
       "Clear business positioning, relevant wholesale assortment and direct access to contact information for buyers and partners.",
     advantages: [
@@ -109,14 +107,14 @@ const content: Record<Lang, Translation> = {
     aboutLabel: "About company",
     aboutTitle: "Wholesale-oriented trade company in Estonia",
     aboutText:
-      "Lassmann Group OÜ operates in the wholesale trade segment and supplies beverages and related products for business customers. Company details and office address are presented openly for partners and buyers.",
+      "operates in the wholesale trade segment and supplies beverages and related products for business customers. Company details and office address are presented openly for partners and buyers.",
     detailsTitle: "Company details",
     company: "Company",
     office: "Office",
     reg: "Registration number",
     vat: "VAT number",
     contactsLabel: "Contacts",
-    contactsTitle: "Get in touch with Lassmann Group OÜ",
+    contactsTitle: "Get in touch with",
     contactsText:
       "For information, business communication and supply requests, use the direct company contacts below.",
     emailBtn: "Email",
@@ -133,7 +131,6 @@ const content: Record<Lang, Translation> = {
     navAbout: "О компании",
     navDetails: "Реквизиты",
     navContacts: "Контакты",
-    heroTitle1: "Lassmann Group OÜ",
     heroTitle2: "Напитки, энергетики и продукты для оптовых клиентов",
     heroText:
       "Мы поставляем напитки и сопутствующие товары для оптовых покупателей, horeca и бизнес-клиентов. Понятная коммуникация, прозрачные реквизиты и удобная прямая связь.",
@@ -142,7 +139,6 @@ const content: Record<Lang, Translation> = {
     mainActivity: "Основная деятельность",
     activityName: "Оптовая торговля напитками и продуктами",
     quickData: "Обзор компании",
-    quickLine1: "Lassmann Group OÜ",
     quickLine2: "Таллинн, Эстония",
     quickLine3: "Оптовые торговые поставки",
     catLabel: "Категории",
@@ -163,7 +159,7 @@ const content: Record<Lang, Translation> = {
       },
     ],
     advantagesLabel: "Преимущества",
-    advantagesTitle: "Почему работают с Lassmann Group OÜ",
+    advantagesTitle: "Почему работают с",
     advantagesText:
       "Понятное позиционирование для опта, актуальный ассортимент и быстрый доступ к контактам для покупателей и партнеров.",
     advantages: [
@@ -178,14 +174,14 @@ const content: Record<Lang, Translation> = {
     aboutLabel: "О компании",
     aboutTitle: "Торговая компания, ориентированная на опт",
     aboutText:
-      "Lassmann Group OÜ работает в сегменте оптовой торговли и поставляет напитки и сопутствующие товары для бизнес-клиентов. Реквизиты компании и адрес офиса открыто представлены для партнеров и покупателей.",
+      "работает в сегменте оптовой торговли и поставляет напитки и сопутствующие товары для бизнес-клиентов. Реквизиты компании и адрес офиса открыто представлены для партнеров и покупателей.",
     detailsTitle: "Реквизиты компании",
     company: "Компания",
     office: "Офис",
     reg: "Регистрационный номер",
     vat: "Номер VAT",
     contactsLabel: "Контакты",
-    contactsTitle: "Связаться с Lassmann Group OÜ",
+    contactsTitle: "Связаться с",
     contactsText:
       "Для информации, деловой связи и запросов на поставку используйте прямые контакты компании ниже.",
     emailBtn: "Email",
@@ -202,7 +198,6 @@ const content: Record<Lang, Translation> = {
     navAbout: "Ettevõttest",
     navDetails: "Ettevõtte andmed",
     navContacts: "Kontaktid",
-    heroTitle1: "Lassmann Group OÜ",
     heroTitle2: "Joogid, energiajoogid ja tooted hulgiklientidele",
     heroText:
       "Pakume jooke ja seotud tooteid hulgiklientidele, horeca-sektorile ja äriklientidele. Selge suhtlus, läbipaistvad ettevõtte andmed ja mugav otsekontakt.",
@@ -211,7 +206,6 @@ const content: Record<Lang, Translation> = {
     mainActivity: "Põhitegevus",
     activityName: "Jookide ja toodete hulgikaubandus",
     quickData: "Ettevõtte ülevaade",
-    quickLine1: "Lassmann Group OÜ",
     quickLine2: "Tallinn, Eesti",
     quickLine3: "Hulgikaubandus ja tarned",
     catLabel: "Kategooriad",
@@ -232,7 +226,7 @@ const content: Record<Lang, Translation> = {
       },
     ],
     advantagesLabel: "Eelised",
-    advantagesTitle: "Miks teha koostööd Lassmann Group OÜ-ga",
+    advantagesTitle: "Miks teha koostööd",
     advantagesText:
       "Selge hulgimüügi suunitlus, sobiv tootevalik ja otsene ligipääs kontaktandmetele ostjate ja partnerite jaoks.",
     advantages: [
@@ -247,14 +241,14 @@ const content: Record<Lang, Translation> = {
     aboutLabel: "Ettevõttest",
     aboutTitle: "Hulgikaubandusele suunatud ettevõte Eestis",
     aboutText:
-      "Lassmann Group OÜ tegutseb hulgikaubanduse valdkonnas ning tarnib jooke ja seotud tooteid äriklientidele. Ettevõtte andmed ja kontori aadress on partneritele ja klientidele avalikult esitatud.",
+      "tegutseb hulgikaubanduse valdkonnas ning tarnib jooke ja seotud tooteid äriklientidele. Ettevõtte andmed ja kontori aadress on partneritele ja klientidele avalikult esitatud.",
     detailsTitle: "Ettevõtte andmed",
     company: "Ettevõte",
     office: "Kontor",
     reg: "Registrikood",
     vat: "KMKR number",
     contactsLabel: "Kontaktid",
-    contactsTitle: "Võta ühendust Lassmann Group OÜ-ga",
+    contactsTitle: "Võta ühendust",
     contactsText:
       "Info, ärisuhtluse ja tarnepäringute jaoks kasuta allpool toodud otseseid kontakte.",
     emailBtn: "E-post",
@@ -304,14 +298,15 @@ export default function LassmannLanding() {
         <div className="relative mx-auto max-w-7xl px-6 py-6 lg:px-8">
           <header className="flex flex-col gap-4 rounded-[28px] border border-white/10 bg-white/5 px-5 py-4 backdrop-blur md:flex-row md:items-center md:justify-between">
             <div className="flex items-center gap-4">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 via-green-400 to-cyan-500 shadow-lg shadow-emerald-500/20">
-                <div className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-black/80 text-sm font-extrabold tracking-[0.2em] text-white">
-                  LG
+              <div className="flex h-16 min-w-[164px] items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 via-green-400 to-cyan-500 px-2 shadow-lg shadow-emerald-500/20">
+                <div className="relative flex h-11 w-full items-center justify-center rounded-xl bg-black/80 px-3 text-[11px] font-extrabold tracking-[0.14em] text-white">
+                  LG-DRINKFOOD
                   <div className="absolute -bottom-1 -right-1 h-3 w-3 rounded-full bg-emerald-400" />
                 </div>
               </div>
+
               <div>
-                <div className="text-xl font-bold tracking-wide">Lassmann Group OÜ</div>
+                <div className="text-xl font-bold tracking-wide">{brandName}</div>
                 <div className="text-sm text-white/60">{t.companyType}</div>
               </div>
             </div>
@@ -357,7 +352,7 @@ export default function LassmannLanding() {
               </div>
 
               <h1 className="max-w-3xl text-5xl font-bold leading-tight md:text-6xl">
-                {t.heroTitle1}
+                {brandName}
                 <span className="mt-4 block text-2xl font-medium leading-snug text-white/75 md:text-3xl">
                   {t.heroTitle2}
                 </span>
@@ -399,7 +394,7 @@ export default function LassmannLanding() {
                   <div className="rounded-3xl border border-white/10 bg-neutral-900 p-6">
                     <div className="text-sm text-white/60">{t.quickData}</div>
                     <div className="mt-4 space-y-3 text-sm text-white/80">
-                      <div className="rounded-2xl bg-white/5 p-3">{t.quickLine1}</div>
+                      <div className="rounded-2xl bg-white/5 p-3">{brandName}</div>
                       <div className="rounded-2xl bg-white/5 p-3">{t.quickLine2}</div>
                       <div className="rounded-2xl bg-white/5 p-3">{t.quickLine3}</div>
                     </div>
@@ -440,7 +435,9 @@ export default function LassmannLanding() {
             <p className="text-sm uppercase tracking-[0.2em] text-green-600">
               {t.advantagesLabel}
             </p>
-            <h2 className="mt-3 text-3xl font-bold md:text-4xl">{t.advantagesTitle}</h2>
+            <h2 className="mt-3 text-3xl font-bold md:text-4xl">
+              {t.advantagesTitle} {brandName}
+            </h2>
             <p className="mt-6 max-w-xl text-lg leading-8 text-neutral-600">
               {t.advantagesText}
             </p>
@@ -488,7 +485,9 @@ export default function LassmannLanding() {
           <div className="rounded-[32px] border border-white/10 bg-white/5 p-8">
             <p className="text-sm uppercase tracking-[0.2em] text-blue-400">{t.aboutLabel}</p>
             <h2 className="mt-3 text-3xl font-bold md:text-4xl">{t.aboutTitle}</h2>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/65">{t.aboutText}</p>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/65">
+              <span className="font-semibold text-white">{brandName}</span> {t.aboutText}
+            </p>
           </div>
 
           <div
@@ -498,7 +497,7 @@ export default function LassmannLanding() {
             <div className="text-sm text-white/60">{t.detailsTitle}</div>
             <div className="mt-5 space-y-4 text-base text-white/85">
               <div>
-                <span className="font-semibold text-white">{t.company}:</span> Lassmann Group OÜ
+                <span className="font-semibold text-white">{t.company}:</span> {brandName}
               </div>
               <div>
                 <span className="font-semibold text-white">{t.office}:</span> Kesk-Sõjamäe 2/1,
@@ -522,7 +521,9 @@ export default function LassmannLanding() {
               <p className="text-sm uppercase tracking-[0.2em] text-green-400">
                 {t.contactsLabel}
               </p>
-              <h2 className="mt-3 text-3xl font-bold md:text-4xl">{t.contactsTitle}</h2>
+              <h2 className="mt-3 text-3xl font-bold md:text-4xl">
+                {t.contactsTitle} {brandName}
+              </h2>
               <p className="mt-4 max-w-2xl text-white/65">{t.contactsText}</p>
             </div>
 
@@ -547,14 +548,17 @@ export default function LassmannLanding() {
               <div className="text-sm text-white/50">Email</div>
               <div className="mt-2 text-lg font-semibold">lassmanngroup@gmail.com</div>
             </div>
+
             <div className="rounded-2xl border border-white/10 bg-neutral-900 p-5">
               <div className="text-sm text-white/50">{t.phone}</div>
               <div className="mt-2 text-lg font-semibold">+37254220209</div>
             </div>
+
             <div className="rounded-2xl border border-white/10 bg-neutral-900 p-5 md:col-span-2">
               <div className="text-sm text-white/50">{t.office}</div>
               <div className="mt-2 text-lg font-semibold">Kesk-Sõjamäe 2/1, EE-11415 Tallinn</div>
             </div>
+
             <div className="rounded-2xl border border-white/10 bg-neutral-900 p-5 md:col-span-2">
               <div className="text-sm text-white/50">{t.info}</div>
               <div className="mt-2 text-lg font-semibold">lassmanngroup@gmail.com</div>
@@ -565,9 +569,11 @@ export default function LassmannLanding() {
 
       <section className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-10 text-sm text-white/55 md:flex-row md:items-center md:justify-between lg:px-8">
-          <div>© 2026 Lassmann Group OÜ. {t.footer}</div>
+          <div>
+            © 2026 {brandName}. {t.footer}
+          </div>
           <div className="flex flex-wrap gap-6">
-            <span>Lassmann Group OÜ</span>
+            <span>{brandName}</span>
             <span>Tallinn, Estonia</span>
             <span>lassmanngroup@gmail.com</span>
           </div>
