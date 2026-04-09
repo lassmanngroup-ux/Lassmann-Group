@@ -23,8 +23,10 @@ type Translation = {
   heroBtn2: string;
   mainActivity: string;
   activityName: string;
-  activityCode: string;
   quickData: string;
+  quickLine1: string;
+  quickLine2: string;
+  quickLine3: string;
   catLabel: string;
   catTitle: string;
   catText: string;
@@ -44,8 +46,6 @@ type Translation = {
   office: string;
   reg: string;
   vat: string;
-  notice: string;
-  econCode: string;
   contactsLabel: string;
   contactsTitle: string;
   contactsText: string;
@@ -67,13 +67,15 @@ const content: Record<Lang, Translation> = {
     heroTitle1: "Lassmann Group OÜ",
     heroTitle2: "Beverages, energy drinks and products for wholesale customers",
     heroText:
-      "We supply beverages and related products for wholesale, horeca and business buyers. Professional communication, clear company details and convenient direct contact.",
+      "We supply beverages and related products for wholesale buyers, horeca and business customers. Clear communication, transparent company details and direct contact.",
     heroBtn1: "Contact us",
     heroBtn2: "Send email",
     mainActivity: "Main activity",
-    activityName: "Wholesale sale of beverages",
-    activityCode: "Activity code: 47251",
+    activityName: "Wholesale trade in beverages and products",
     quickData: "Company overview",
+    quickLine1: "Lassmann Group OÜ",
+    quickLine2: "Tallinn, Estonia",
+    quickLine3: "Wholesale trade supply",
     catLabel: "Categories",
     catTitle: "Wholesale product directions",
     catText: "Suitable for retail stores, resellers, horeca and supply partners.",
@@ -84,7 +86,7 @@ const content: Record<Lang, Translation> = {
       },
       {
         title: "Energy Drinks",
-        desc: "High-demand energy drink brands for wholesale supply and resale.",
+        desc: "Popular energy drink products for wholesale supply and resale.",
       },
       {
         title: "Products",
@@ -94,27 +96,25 @@ const content: Record<Lang, Translation> = {
     advantagesLabel: "Advantages",
     advantagesTitle: "Why work with Lassmann Group OÜ",
     advantagesText:
-      "Clear business identity, relevant wholesale positioning and direct access to contact information for buyers and partners.",
+      "Clear business positioning, relevant wholesale assortment and direct access to contact information for buyers and partners.",
     advantages: [
       "Wholesale supply for shops, horeca and distributors",
       "Reliable assortment of beverages and related products",
       "Fast communication via phone, WhatsApp and email",
-      "Registered company in Estonia with full company details",
+      "Registered company in Estonia with transparent company details",
     ],
     galleryLabel: "Products",
     galleryTitle: "Beverages and product assortment",
     galleryText: "Visual presentation of categories for partners and buyers.",
     aboutLabel: "About company",
-    aboutTitle: "Registered trade company in Estonia",
+    aboutTitle: "Wholesale-oriented trade company in Estonia",
     aboutText:
-      "Lassmann Group OÜ operates in the beverage trade segment and provides wholesale-oriented product supply. The company details, office address and registration data are presented openly for partners and customers.",
+      "Lassmann Group OÜ operates in the wholesale trade segment and supplies beverages and related products for business customers. Company details and office address are presented openly for partners and buyers.",
     detailsTitle: "Company details",
     company: "Company",
     office: "Office",
-    reg: "Reg.nr. (EORI)",
-    vat: "KMKR (VAT)",
-    notice: "Economic activity notice number",
-    econCode: "Activity code",
+    reg: "Registration number",
+    vat: "VAT number",
     contactsLabel: "Contacts",
     contactsTitle: "Get in touch with Lassmann Group OÜ",
     contactsText:
@@ -125,6 +125,7 @@ const content: Record<Lang, Translation> = {
     info: "Information",
     footer: "Wholesale beverages and trade supply.",
   },
+
   ru: {
     topBadge: "Эстония • Оптовые напитки • Торговые поставки",
     companyType: "Оптовая торговля напитками и продуктами",
@@ -135,24 +136,26 @@ const content: Record<Lang, Translation> = {
     heroTitle1: "Lassmann Group OÜ",
     heroTitle2: "Напитки, энергетики и продукты для оптовых клиентов",
     heroText:
-      "Мы поставляем напитки и сопутствующие товары для розницы, horeca и бизнес-покупателей. Профессиональная коммуникация, прозрачные реквизиты и удобная прямая связь.",
+      "Мы поставляем напитки и сопутствующие товары для оптовых покупателей, horeca и бизнес-клиентов. Понятная коммуникация, прозрачные реквизиты и удобная прямая связь.",
     heroBtn1: "Связаться с нами",
     heroBtn2: "Написать на email",
     mainActivity: "Основная деятельность",
-    activityName: "Оптовая продажа напитков",
-    activityCode: "Код деятельности: 47251",
+    activityName: "Оптовая торговля напитками и продуктами",
     quickData: "Обзор компании",
+    quickLine1: "Lassmann Group OÜ",
+    quickLine2: "Таллинн, Эстония",
+    quickLine3: "Оптовые торговые поставки",
     catLabel: "Категории",
     catTitle: "Основные направления поставок",
     catText: "Подходит для магазинов, реселлеров, horeca и торговых партнеров.",
     categories: [
       {
         title: "Напитки",
-        desc: "Соки, вода, газированные и другие напитки для розницы, horeca и дистрибуции.",
+        desc: "Соки, вода, газированные и другие напитки для оптовых поставок, horeca и дистрибуции.",
       },
       {
         title: "Энергетики",
-        desc: "Популярные бренды энергетических напитков для оптовых поставок и перепродажи.",
+        desc: "Популярные энергетические напитки для оптовых поставок и перепродажи.",
       },
       {
         title: "Продукты",
@@ -162,27 +165,25 @@ const content: Record<Lang, Translation> = {
     advantagesLabel: "Преимущества",
     advantagesTitle: "Почему работают с Lassmann Group OÜ",
     advantagesText:
-      "Понятная бизнес-идентификация, правильное позиционирование для опта и быстрый доступ к контактам для покупателей и партнеров.",
+      "Понятное позиционирование для опта, актуальный ассортимент и быстрый доступ к контактам для покупателей и партнеров.",
     advantages: [
       "Оптовые поставки для магазинов, horeca и дистрибьюторов",
       "Надежный ассортимент напитков и сопутствующих товаров",
       "Быстрая связь по телефону, WhatsApp и email",
-      "Зарегистрированная компания в Эстонии с полными реквизитами",
+      "Зарегистрированная компания в Эстонии с прозрачными реквизитами",
     ],
     galleryLabel: "Продукция",
     galleryTitle: "Ассортимент напитков и товаров",
     galleryText: "Визуальная презентация категорий для партнеров и покупателей.",
     aboutLabel: "О компании",
-    aboutTitle: "Зарегистрированная торговая компания в Эстонии",
+    aboutTitle: "Торговая компания, ориентированная на опт",
     aboutText:
-      "Lassmann Group OÜ работает в сегменте торговли напитками и ориентирована на поставки для оптовых клиентов. Реквизиты, адрес офиса и регистрационные данные открыто представлены для партнеров и покупателей.",
+      "Lassmann Group OÜ работает в сегменте оптовой торговли и поставляет напитки и сопутствующие товары для бизнес-клиентов. Реквизиты компании и адрес офиса открыто представлены для партнеров и покупателей.",
     detailsTitle: "Реквизиты компании",
     company: "Компания",
     office: "Офис",
-    reg: "Рег. № (EORI)",
-    vat: "KMKR (VAT)",
-    notice: "Номер уведомления о хозяйственной деятельности",
-    econCode: "Код деятельности",
+    reg: "Регистрационный номер",
+    vat: "Номер VAT",
     contactsLabel: "Контакты",
     contactsTitle: "Связаться с Lassmann Group OÜ",
     contactsText:
@@ -193,8 +194,9 @@ const content: Record<Lang, Translation> = {
     info: "Информация",
     footer: "Оптовые напитки и торговые поставки.",
   },
+
   et: {
-    topBadge: "Eesti • Hulgimüük • Joogikaubandus",
+    topBadge: "Eesti • Jookide hulgimüük • Kaubanduslikud tarned",
     companyType: "Jookide ja toodete hulgikaubandus",
     navCategories: "Kategooriad",
     navAbout: "Ettevõttest",
@@ -203,24 +205,26 @@ const content: Record<Lang, Translation> = {
     heroTitle1: "Lassmann Group OÜ",
     heroTitle2: "Joogid, energiajoogid ja tooted hulgiklientidele",
     heroText:
-      "Tarnime jooke ja seotud tooteid jaekaubandusele, horeca-sektorile ja äriklientidele. Professionaalne suhtlus, selged ettevõtte andmed ja mugav otsekontakt.",
+      "Pakume jooke ja seotud tooteid hulgiklientidele, horeca-sektorile ja äriklientidele. Selge suhtlus, läbipaistvad ettevõtte andmed ja mugav otsekontakt.",
     heroBtn1: "Võta ühendust",
     heroBtn2: "Saada e-kiri",
     mainActivity: "Põhitegevus",
-    activityName: "Jookide jaemüük",
-    activityCode: "Tegevusala kood: 47251",
+    activityName: "Jookide ja toodete hulgikaubandus",
     quickData: "Ettevõtte ülevaade",
+    quickLine1: "Lassmann Group OÜ",
+    quickLine2: "Tallinn, Eesti",
+    quickLine3: "Hulgikaubandus ja tarned",
     catLabel: "Kategooriad",
     catTitle: "Hulgimüügi põhisuunad",
     catText: "Sobib kauplustele, edasimüüjatele, horeca-sektorile ja tarnepartneritele.",
     categories: [
       {
         title: "Joogid",
-        desc: "Mahlad, vesi, karastusjoogid ja muud joogid jaekaubandusele, horeca-sektorile ja jaotusele.",
+        desc: "Mahlad, vesi, karastusjoogid ja muud joogid hulgimüügiks, horeca-sektorile ja jaotuseks.",
       },
       {
         title: "Energiajoogid",
-        desc: "Suure nõudlusega energiajoogid hulgimüügiks ja edasimüügiks.",
+        desc: "Populaarsed energiajoogid hulgimüügiks ja edasimüügiks.",
       },
       {
         title: "Tooted",
@@ -230,27 +234,25 @@ const content: Record<Lang, Translation> = {
     advantagesLabel: "Eelised",
     advantagesTitle: "Miks teha koostööd Lassmann Group OÜ-ga",
     advantagesText:
-      "Selge äriline identiteet, sobiv hulgimüügi positsioneerimine ja otsene ligipääs kontaktandmetele ostjate ja partnerite jaoks.",
+      "Selge hulgimüügi suunitlus, sobiv tootevalik ja otsene ligipääs kontaktandmetele ostjate ja partnerite jaoks.",
     advantages: [
       "Hulgitarne kauplustele, horeca-sektorile ja edasimüüjatele",
       "Usaldusväärne jookide ja seotud toodete valik",
       "Kiire suhtlus telefoni, WhatsAppi ja e-posti kaudu",
-      "Eestis registreeritud ettevõte koos täielike andmetega",
+      "Eestis registreeritud ettevõte läbipaistvate andmetega",
     ],
     galleryLabel: "Tooted",
     galleryTitle: "Jookide ja toodete valik",
     galleryText: "Visuaalne esitlus partneritele ja ostjatele.",
     aboutLabel: "Ettevõttest",
-    aboutTitle: "Eestis registreeritud kaubandusettevõte",
+    aboutTitle: "Hulgikaubandusele suunatud ettevõte Eestis",
     aboutText:
-      "Lassmann Group OÜ tegutseb joogikaubanduse valdkonnas ja pakub hulgimüügile suunatud tarneid. Ettevõtte andmed, kontori aadress ja registreerimisinfo on partneritele ja klientidele avalikult esitatud.",
+      "Lassmann Group OÜ tegutseb hulgikaubanduse valdkonnas ning tarnib jooke ja seotud tooteid äriklientidele. Ettevõtte andmed ja kontori aadress on partneritele ja klientidele avalikult esitatud.",
     detailsTitle: "Ettevõtte andmed",
     company: "Ettevõte",
     office: "Kontor",
-    reg: "Reg.nr. (EORI)",
-    vat: "KMKR (VAT)",
-    notice: "Majandustegevuse teate number",
-    econCode: "Tegevusala kood",
+    reg: "Registrikood",
+    vat: "KMKR number",
     contactsLabel: "Kontaktid",
     contactsTitle: "Võta ühendust Lassmann Group OÜ-ga",
     contactsText:
@@ -259,7 +261,7 @@ const content: Record<Lang, Translation> = {
     whatsappBtn: "WhatsApp",
     phone: "Telefon",
     info: "Info",
-    footer: "Jookide hulgimüük ja kaubanduslik tarne.",
+    footer: "Jookide hulgimüük ja kaubanduslikud tarned.",
   },
 };
 
@@ -269,7 +271,6 @@ function categoriesForLang(categories: readonly Category[], index: number) {
 
 export default function LassmannLanding() {
   const [lang, setLang] = useState<Lang>("en");
-
   const t = content[lang];
 
   const gallery = [
@@ -331,6 +332,7 @@ export default function LassmannLanding() {
                   </button>
                 ))}
               </div>
+
               <nav className="flex flex-wrap gap-4 text-sm text-white/75">
                 <a href="#categories" className="transition hover:text-white">
                   {t.navCategories}
@@ -353,15 +355,18 @@ export default function LassmannLanding() {
               <div className="mb-5 inline-flex rounded-full border border-green-400/30 bg-green-400/10 px-4 py-2 text-sm text-green-300">
                 {t.topBadge}
               </div>
+
               <h1 className="max-w-3xl text-5xl font-bold leading-tight md:text-6xl">
                 {t.heroTitle1}
                 <span className="mt-4 block text-2xl font-medium leading-snug text-white/75 md:text-3xl">
                   {t.heroTitle2}
                 </span>
               </h1>
+
               <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">
                 {t.heroText}
               </p>
+
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
                   href="#contacts"
@@ -389,15 +394,14 @@ export default function LassmannLanding() {
                       {t.mainActivity}
                     </div>
                     <div className="mt-8 text-3xl font-bold">{t.activityName}</div>
-                    <div className="mt-2 text-sm text-black/70">{t.activityCode}</div>
                   </div>
 
                   <div className="rounded-3xl border border-white/10 bg-neutral-900 p-6">
                     <div className="text-sm text-white/60">{t.quickData}</div>
                     <div className="mt-4 space-y-3 text-sm text-white/80">
-                      <div className="rounded-2xl bg-white/5 p-3">Lassmann Group OÜ</div>
-                      <div className="rounded-2xl bg-white/5 p-3">Tallinn, Estonia</div>
-                      <div className="rounded-2xl bg-white/5 p-3">Wholesale trade supply</div>
+                      <div className="rounded-2xl bg-white/5 p-3">{t.quickLine1}</div>
+                      <div className="rounded-2xl bg-white/5 p-3">{t.quickLine2}</div>
+                      <div className="rounded-2xl bg-white/5 p-3">{t.quickLine3}</div>
                     </div>
                   </div>
                 </div>
@@ -441,6 +445,7 @@ export default function LassmannLanding() {
               {t.advantagesText}
             </p>
           </div>
+
           <div className="grid gap-4">
             {t.advantages.map((item) => (
               <div key={item} className="rounded-3xl border border-neutral-200 p-5 shadow-sm">
@@ -504,13 +509,6 @@ export default function LassmannLanding() {
               </div>
               <div>
                 <span className="font-semibold text-white">{t.vat}:</span> EE101532367
-              </div>
-              <div>
-                <span className="font-semibold text-white">{t.notice}:</span> KJK056031
-              </div>
-              <div>
-                <span className="font-semibold text-white">{t.econCode}:</span> 47251 - Retail
-                sale of beverages
               </div>
             </div>
           </div>
